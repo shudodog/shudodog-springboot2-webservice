@@ -9,7 +9,7 @@ branches:
 before_install:
   chmod +x gradlew
 
-# Travis CI서버의  Home
+# TravisCI서버의  Home
 cache:
   directories:
     - '$HOME/.m2/repository'
