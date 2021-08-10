@@ -43,7 +43,7 @@ deploy:
     deployment_group: shudodog-springboot2-webservice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true
-# CI 실행 완료시 메일로 알람
+# CI 실행 완료시 메일로
 notifications:
   email:
     recipients:
