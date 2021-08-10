@@ -18,9 +18,9 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  -zip -r shudodog-springboot2-webservice *
-  -mkdir -p deploy
-  -mv shudodog-springboot2-webservice.zip deploy/shudodog-springboot2-webservice.zip
+  - zip -r shudodog-springboot2-webservice *
+  - mkdir -p deploy
+  - mv shudodog-springboot2-webservice.zip deploy/shudodog-springboot2-webservice.zip
 
 deploy:
   - provider: s3
