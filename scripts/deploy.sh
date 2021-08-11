@@ -21,7 +21,7 @@ else
     sleep 5
 fi
 
-echo "> 새 어플리케이션 배포"
+echo "> 새 어플리케이션배포"
 
 JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
 
