@@ -1,5 +1,14 @@
 # shudodog-springboot2-webservice
 http://ec2-3-38-82-54.ap-northeast-2.compute.amazonaws.com/
+
+![image](https://user-images.githubusercontent.com/76150392/130751151-463ce1e3-a4a2-43dc-ab37-05143f2c1ad0.png)
+![image](https://user-images.githubusercontent.com/76150392/130751238-69c6ac1c-50af-4ef1-aa1f-e84fc81ffdca.png)
+![image](https://user-images.githubusercontent.com/76150392/130751334-f48ef1c9-821c-4c07-9c9d-a6476bb482d2.png)
+![image](https://user-images.githubusercontent.com/76150392/130751446-c7a9f660-b9d8-4422-87f7-688880e5cd3d.png)
+![image](https://user-images.githubusercontent.com/76150392/130751490-4aad6284-8652-4748-bf6d-43a5605d8979.png)
+![image](https://user-images.githubusercontent.com/76150392/130751544-8126fdf0-f77f-4f98-8fbb-5a8b68571bb7.png)
+
+
 이 프로젝트를 진행한 이유?
 -세연넷이라는 연세대학교 커뮤니티가 있는데 접속자 수가 적고 서울대의 스누라이프, 고려대의 고파스에 비해 사이트가 활발하지 못하였다.
 또한 매번 같은 글들(로스쿨, 변호사, 의치한 등등) 만 올라오는데 남과의 비교만 하고 의사가 아니면 별로다 라는 글만 계속 올라와서 사이트를 아예
