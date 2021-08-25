@@ -1,9 +1,9 @@
 # shudodog-springboot2-webservice
 http://ec2-3-38-82-54.ap-northeast-2.compute.amazonaws.com/
 
-****2021.08****
+**2021.08**
 
-****Spring boot, JPA, Java 8, Gradle 4.10.2, lombok, Mustache, Amazon Linux2 AMI/ JUnit4 저장소 : mavenCenteral, jcenter****
+**Spring boot, JPA, Java 8, Gradle 4.10.2, lombok, Mustache, Amazon Linux2 AMI/ JUnit4 저장소 : mavenCenteral, jcenter**
 
 ## 기능
 1. 네이버, 구글 연동 로그인 OAuth 2.0, 스프링 시큐리티
@@ -22,6 +22,7 @@ http://ec2-3-38-82-54.ap-northeast-2.compute.amazonaws.com/
 
 
 ## 이 프로젝트를 진행한 이유?
+스프링으로 한 첫번째 프로젝트다.
 -세연넷이라는 연세대학교 커뮤니티가 있는데 접속자 수가 적고 서울대의 스누라이프, 고려대의 고파스에 비해 사이트가 활발하지 못하였다.
 또한 매번 같은 글들(로스쿨, 변호사, 의치한 등등) 만 올라오는데 남과의 비교만 하고 의사가 아니면 별로다 라는 글만 계속 올라와서 사이트를 아예
 내가 새로운 연세대학교 커뮤니티를 만들어야겠다는 생각이 들었다.
