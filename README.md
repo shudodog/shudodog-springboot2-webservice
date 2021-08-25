@@ -3,6 +3,14 @@ http://ec2-3-38-82-54.ap-northeast-2.compute.amazonaws.com/
 
 2021.08
 
+****Spring boot, JPA, Java 8, Gradle 4.10.2, lombok, Mustache, Amazon Linux2 AMI/ JUnit4 저장소 : mavenCenteral, jcenter****
+
+****기능****
+1. 네이버, 구글 연동 로그인 OAuth 2.0, 스프링 시큐리티
+2. 게시글 등록, 수정, 조회 API 
+3. 무중단 배포 AWS EC2, RDS
+4. 배포 자동화 Travis CI와 AWS S3, CodeDeploy연동
+
 ![image](https://user-images.githubusercontent.com/76150392/130751151-463ce1e3-a4a2-43dc-ab37-05143f2c1ad0.png)
 ![image](https://user-images.githubusercontent.com/76150392/130751238-69c6ac1c-50af-4ef1-aa1f-e84fc81ffdca.png)
 ![image](https://user-images.githubusercontent.com/76150392/130751334-f48ef1c9-821c-4c07-9c9d-a6476bb482d2.png)
@@ -29,23 +37,12 @@ http://ec2-3-38-82-54.ap-northeast-2.compute.amazonaws.com/
 를 할 수 있도록 웹사이트를 만들었다.
 
 ****프로젝트를 하면서 어려움을 느낀 점****
-1. 테스트 코드를 작성하고 난 후 마지막 test를 돌릴때 오류가 떳는데 개별적으로 test할때는 오류가 안떳는데 gradle안에서 할때 오류가 뜸
-
-2. 데이터베이스 연결 문제 : intellij의 database navigator plugins를 설치하고 DB Browser와 연결이 되지 않아서 intellij를 업그레이드 시키고 하였다.
-3. Amazon Linux에서 vim사용법을 몰라 오류가 많이 떳는데 vim 사용법을 제대로 익혔다.
-4. deploy.sh실행후 재실행하면  build 오류가 뜸 > jar파일이 중복되어서 있었던 문제(linux에 git연동부터 다시 하여서 알아내었다. git을 처음 clone한후 실행하면
-잘 되었는데 2번째 부터 안된다느 ㄴ사실을 계속 다시 git연동부터 처음부터 다시 하니깐 깨달았다.) 먼저 깔려있던 jar이 8080포트를 이미 이용하고 있어서 톰캣이 실행이 안되었다. cmd창에서 이미
+1. 모든 것에 단위 테스트 코드를 작성하였다. 테스트 코드를 작성하고 난 후 마지막 test를 돌릴때 오류가 떳는데 개별적으로 test할때는 오류가 안떳는데 gradle안에서 할때 오류가 생겼다. 첫번째 문제는 CustomOAuth2UserService를 찾을 수 없는 것이었다. 이것은 소셜 로그인 관련 설정 값들이 없기 때문에 생겼다. src/main 환경과 src/test환경의 차이 때문이었는데, application-oauth.properties는 test에 파일이 없다고 가죠오는 파일이 아니었다. 이 문제를 해결하기 위해 테스트 환경을 위한 application.properties를 만들었다. 실제 구글 연동까지 진행할 것이 아니기 때문에 가짜 설정값을 등록하여 문제를 해결하였다. 두번째 문제는 302 Status Code였는데 Posts_등록된다 테스트 로그에서 인증되지 않은 사용자의 요청을 이동시킨다. 따라서 임의의 인증된 사용자를 추가하여야 하는데 @WithMockUser가 MockMvc에서만 작동한다. 따라서 @springBootTest에서 MockMvc를 사용하였다.
+2. 데이터베이스 연결 문제 : intellij의 database navigator plugins를 설치하고 DB Browser와 연결이 되지 않아서 intellij를 업그레이드 시키고 DB Browser가 아닌 database로 MySQL를 직접 연결하여 해결하였다.
+3. Amazon Linux에서 vim사용법을 몰라서 많은 오류가 생겼었는데 vim 사용법을 배우고 정확히 사용하였더니 오류가 생기지 않았다. 오타를 줄이는 것도 정말 중요한 것 같다.
+4. deploy.sh실행후 재실행하면  build 오류가 뜸 > jar파일이 중복되어서 있었던 문제(linux에 git연동부터 다시 하여서 알아내었다. git을 처음 clone한후 실행하면 잘 되었는데 2번째 부터 안된다는 사실을 계속 다시 git연동부터 처음부터 다시 하니깐 깨달았다.) 먼저 깔려있던 jar이 8080포트를 이미 이용하고 있어서 톰캣이 실행이 안되었다. cmd창에서 이미
 8080이 이용되고 있다는 사실을 알았고 그래서 처음 build를 할때 있던 jar파일을 다 삭제한 후 실행하였다.
-5. travis연동후 배포했을때 travis에서 build는 다 됐다고 (서버 배포는 성공)되었다고 뜨지만 white label error가 떴다. 에러에 대해 구글링 하니
-서버는 실행되어 배포되지만 database문제라고 하였다. 다시 에러를 천천히 읽어보니 sql result값을 가져오지 못한다는 것이었다.
-그래서 내가 sql을 database navigator > DB Browser로 연결하지 않아서 에러가 뜨는 것이라 착각했다. 하지만 linux에서 nohup.out을 vim으로 열어
-linux cmd창에 어떤 에러가 있는지 봣더니 sql table에 없는 값이라는 에러 메시지가 있었다. 내가 sql console창에 테이블 명을 등록할때 오타가 있었다는 걸 발견했고,
-다시 수정해서 sql table을 만들었더니 정상적으로 웹페이지가 실행되었다. 여기서 나는 일단 에러가 나면 console창을 확인하는 것이 우선이라는 걸 배웠다.
-평소에 뇌피셜로 어디가 잘못됐을까 추측하고 구글링하는데, 일단 정확히 어떤 부위에서 에러가 났는지 console창을 일일이 확인하는 것이 중요하다.
-
-****Spring boot, Java 8, Gradle 4.10.2, Mustache, Amazon Linux2 AMI, JUnit4
-저장소 : mavenCenteral, jcenter****
-
+5. travis연동후 배포했을때 travis에서 build는 다 됐다고 (서버 배포는 성공)되었다고 뜨지만 white label error가 떴다. 에러에 대해 구글링 하니 서버는 실행되어 배포되지만 database문제라고 하였다. 다시 에러를 천천히 읽어보니 sql result값을 가져오지 못한다는 것이었다. 그래서 내가 sql을 database navigator > DB Browser로 연결하지 않아서 에러가 뜨는 것이라 착각했다. 하지만 linux에서 nohup.out을 vim으로 열어 linux cmd창에 어떤 에러가 있는지 봣더니 sql table에 없는 값이라는 에러 메시지가 있었다. 내가 sql console창에 테이블 명을 등록할때 오타가 있었다는 걸 발견했고, 다시 수정해서 sql table을 만들었더니 정상적으로 웹페이지가 실행되었다. 여기서 나는 일단 에러가 나면 console창을 확인하는 것이 우선이라는 걸 배웠다. 평소에 뇌피셜로 어디가 잘못됐을까 추측하고 구글링하는데, 일단 정확히 어떤 부위에서 에러가 났는지 console창을 일일이 확인하는 것이 중요하다.
 
 테스트 코드 작성법: 실패테스트(red) > 통과하는 프로덕션 코드(green) > 프로덕션 코드 리펙토링(refactor)
 내장 WAS 사용 , 언제 어디서나 같은 환경에서 스프링 부트를 배포할수 있어서
