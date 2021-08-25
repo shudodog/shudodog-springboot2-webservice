@@ -6,7 +6,8 @@ http://ec2-3-38-82-54.ap-northeast-2.compute.amazonaws.com/
 ![image](https://user-images.githubusercontent.com/76150392/130751334-f48ef1c9-821c-4c07-9c9d-a6476bb482d2.png)
 ![image](https://user-images.githubusercontent.com/76150392/130751446-c7a9f660-b9d8-4422-87f7-688880e5cd3d.png)
 ![image](https://user-images.githubusercontent.com/76150392/130751490-4aad6284-8652-4748-bf6d-43a5605d8979.png)
-![image](https://user-images.githubusercontent.com/76150392/130751544-8126fdf0-f77f-4f98-8fbb-5a8b68571bb7.png)
+![image](https://user-images.githubusercontent.com/76150392/130751763-c8074e00-43ef-4bc8-9e1a-a632b3b66827.png)
+
 
 
 이 프로젝트를 진행한 이유?
