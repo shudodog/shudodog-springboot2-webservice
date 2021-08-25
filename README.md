@@ -10,7 +10,7 @@ http://ec2-3-38-82-54.ap-northeast-2.compute.amazonaws.com/
 
 
 
-이 프로젝트를 진행한 이유?
+****이 프로젝트를 진행한 이유?****
 -세연넷이라는 연세대학교 커뮤니티가 있는데 접속자 수가 적고 서울대의 스누라이프, 고려대의 고파스에 비해 사이트가 활발하지 못하였다.
 또한 매번 같은 글들(로스쿨, 변호사, 의치한 등등) 만 올라오는데 남과의 비교만 하고 의사가 아니면 별로다 라는 글만 계속 올라와서 사이트를 아예
 내가 새로운 연세대학교 커뮤니티를 만들어야겠다는 생각이 들었다.
@@ -26,7 +26,7 @@ http://ec2-3-38-82-54.ap-northeast-2.compute.amazonaws.com/
 -회원 기능 : 구글/네이버 로그인, 로그인한 사용자 글 작성 권한, 본인작성 글에 대한 권한 관리
 를 할 수 있도록 웹사이트를 만들었다.
 
-프로젝트를 하면서 어려움을 느낀 점
+****프로젝트를 하면서 어려움을 느낀 점****
 1. 테스트 코드를 작성하고 난 후 마지막 test를 돌릴때 오류가 떳는데 개별적으로 test할때는 오류가 안떳는데 gradle안에서 할때 오류가 뜸
 
 2. 데이터베이스 연결 문제 : intellij의 database navigator plugins를 설치하고 DB Browser와 연결이 되지 않아서 intellij를 업그레이드 시키고 하였다.
@@ -41,8 +41,8 @@ linux cmd창에 어떤 에러가 있는지 봣더니 sql table에 없는 값이�
 다시 수정해서 sql table을 만들었더니 정상적으로 웹페이지가 실행되었다. 여기서 나는 일단 에러가 나면 console창을 확인하는 것이 우선이라는 걸 배웠다.
 평소에 뇌피셜로 어디가 잘못됐을까 추측하고 구글링하는데, 일단 정확히 어떤 부위에서 에러가 났는지 console창을 일일이 확인하는 것이 중요하다.
 
-Spring boot, Java 8, Gradle 4.10.2, Mustache, Amazon Linux2 AMI, JUnit4
-저장소 : mavenCenteral, jcenter
+****Spring boot, Java 8, Gradle 4.10.2, Mustache, Amazon Linux2 AMI, JUnit4
+저장소 : mavenCenteral, jcenter****
 
 
 테스트 코드 작성법: 실패테스트(red) > 통과하는 프로덕션 코드(green) > 프로덕션 코드 리펙토링(refactor)
